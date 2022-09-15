@@ -11,20 +11,22 @@ function get_edu_data(){
         $index ++;
         $i++;
     }
+    return $edu;
 }
 
 function get_exp_data(){
     $fp = fopen("./cv.csv", "r");
-    $edu = [];
+    $exp = [];
     $index = 0;
     $i = 0;
     while($row = fgetcsv($fp)){
         if($index % 2 == 0){
-            $edu[$i] = ["work" => $row[1], "place" => $row[2], "starting-year" => $row[3], "ending-year" => $row[4]];
+            $exp[$i] = ["work" => $row[1], "place" => $row[2], "starting-year" => $row[3], "ending-year" => $row[4]];
         }
         $index ++;
         $i++;
     }
+    return $exp;
 }
 
 function sort_exp($job1, $job2){
